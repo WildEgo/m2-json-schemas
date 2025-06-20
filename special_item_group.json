@@ -10,34 +10,20 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": [
-          "name",
-          "type",
-          "vnum",
-          "rows"
-        ],
+        "required": ["name", "type", "vnum", "rows"],
         "properties": {
           "name": {
             "type": "string"
           },
           "type": {
             "type": "string",
-            "enum": [
-              "percentage",
-              "attribute",
-              "quest",
-              "special",
-              "normal"
-            ]
+            "enum": ["percentage", "attribute", "quest", "special", "normal"]
           },
           "vnum": {
             "type": "number"
           },
           "effect": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "rows": {
             "type": "array"
@@ -57,22 +43,8 @@
                 "rows": {
                   "items": {
                     "type": "object",
-                    "required": [
-                      "vnum",
-                      "apply_type",
-                      "apply_value"
-                    ],
+                    "required": ["vnum", "apply_type", "apply_value"],
                     "properties": {
-                      "vnum": {
-                        "oneOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "type": "number"
-                          }
-                        ]
-                      },
                       "apply_type": {
                         "type": "number"
                       },
@@ -135,8 +107,5 @@
       }
     }
   },
-  "required": [
-    "$schema",
-    "rows"
-  ]
+  "required": ["$schema", "rows"]
 }
