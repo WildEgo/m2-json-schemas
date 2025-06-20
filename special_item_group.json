@@ -1,0 +1,142 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://localhost:8080/$schemas/special_item_group.json",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "rows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "type",
+          "vnum",
+          "rows"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "percentage",
+              "attribute",
+              "quest",
+              "special",
+              "normal"
+            ]
+          },
+          "vnum": {
+            "type": "number"
+          },
+          "effect": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "rows": {
+            "type": "array"
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "type": {
+                  "const": "attribute"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "rows": {
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "vnum",
+                      "apply_type",
+                      "apply_value"
+                    ],
+                    "properties": {
+                      "vnum": {
+                        "oneOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "number"
+                          }
+                        ]
+                      },
+                      "apply_type": {
+                        "type": "number"
+                      },
+                      "apply_value": {
+                        "type": "number"
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                }
+              }
+            },
+            "else": {
+              "properties": {
+                "rows": {
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "vnum",
+                      "count",
+                      "probability",
+                      "rare_percentage"
+                    ],
+                    "properties": {
+                      "vnum": {
+                        "oneOf": [
+                          {
+                            "type": "string",
+                            "enum": [
+                              "exp",
+                              "mob",
+                              "slow",
+                              "drain_hp",
+                              "poison",
+                              "group"
+                            ]
+                          },
+                          {
+                            "type": "number"
+                          }
+                        ]
+                      },
+                      "count": {
+                        "type": "number"
+                      },
+                      "probability": {
+                        "type": "number"
+                      },
+                      "rare_percentage": {
+                        "type": "number"
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "$schema",
+    "rows"
+  ]
+}
