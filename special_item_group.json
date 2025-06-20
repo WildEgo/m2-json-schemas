@@ -43,7 +43,7 @@
                 "rows": {
                   "items": {
                     "type": "object",
-                    "required": ["vnum", "apply_type", "apply_value"],
+                    "required": ["apply_type", "apply_value"],
                     "properties": {
                       "apply_type": {
                         "type": "number"
