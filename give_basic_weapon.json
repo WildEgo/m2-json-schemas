@@ -19,19 +19,19 @@
       "properties": {
         "warrior": {
           "type": "array",
-          "items": { "$ref": "#/$defs/jobItem" }
+          "items": { "$ref": "#/$defs/item" }
         },
         "assassin": {
           "type": "array",
-          "items": { "$ref": "#/$defs/jobItem" }
+          "items": { "$ref": "#/$defs/item" }
         },
         "sura": {
           "type": "array",
-          "items": { "$ref": "#/$defs/jobItem" }
+          "items": { "$ref": "#/$defs/item" }
         },
         "shaman": {
           "type": "array",
-          "items": { "$ref": "#/$defs/jobItem" }
+          "items": { "$ref": "#/$defs/item" }
         }
       },
       "required": ["warrior", "assassin", "sura", "shaman"],
@@ -47,17 +47,7 @@
         "vnum": { "type": "integer" },
         "pos": { "type": "integer" },
         "equip": { "type": "boolean" },
-        "count": { "type": "integer" }
-      },
-      "required": ["vnum", "pos", "equip"],
-      "additionalProperties": false
-    },
-    "jobItem": {
-      "type": "object",
-      "properties": {
-        "vnum": { "type": "integer" },
-        "pos": { "type": "integer" },
-        "equip": { "type": "boolean" },
+        "count": { "type": "integer" },
         "sockets": {
           "type": "array",
           "items": { "type": "integer" },
