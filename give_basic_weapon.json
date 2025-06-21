@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://localhost:8080/$schemas/give_basic_weapon.json",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "common": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/item" }
+    },
+    "shared": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/item" }
+    },
+    "jobs": {
+      "type": "object",
+      "properties": {
+        "warrior": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/jobItem" }
+        },
+        "assassin": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/jobItem" }
+        },
+        "sura": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/jobItem" }
+        },
+        "shaman": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/jobItem" }
+        }
+      },
+      "required": ["warrior", "assassin", "sura", "shaman"],
+      "additionalProperties": false
+    }
+  },
+  "required": ["common", "shared", "jobs"],
+  "additionalProperties": false,
+  "$defs": {
+    "item": {
+      "type": "object",
+      "properties": {
+        "vnum": { "type": "integer" },
+        "pos": { "type": "integer" },
+        "equip": { "type": "boolean" },
+        "count": { "type": "integer" }
+      },
+      "required": ["vnum", "pos", "equip"],
+      "additionalProperties": false
+    },
+    "jobItem": {
+      "type": "object",
+      "properties": {
+        "vnum": { "type": "integer" },
+        "pos": { "type": "integer" },
+        "equip": { "type": "boolean" },
+        "sockets": {
+          "type": "array",
+          "items": { "type": "integer" },
+          "minItems": 3,
+          "maxItems": 3
+        },
+        "attrs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": { "type": "integer" },
+              "value": { "type": "integer" }
+            },
+            "required": ["type", "value"],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": ["vnum", "pos", "equip"],
+      "additionalProperties": false
+    }
+  }
+}
