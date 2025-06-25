@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/WildEgo/m2-json-schemas/refs/heads/main/blend.json",
+  "title": "Blend configuration",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "rows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "vnum": {
+            "type": "integer"
+          },
+          "apply_type": {
+            "type": "string"
+          },
+          "apply_data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "integer"
+                },
+                "duration": {
+                  "type": "integer"
+                }
+              },
+              "required": ["value", "duration"],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": ["vnum", "apply_type", "apply_data"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["rows"],
+  "additionalProperties": false
+}
