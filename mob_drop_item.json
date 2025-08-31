@@ -1,0 +1,121 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/WildEgo/m2-json-schemas/refs/heads/main/mob_drop_item.json",
+  "title": "Mob Drop Items Schema",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "rows": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "title": "Kill",
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "type": { "const": "kill" },
+              "vnum": { "type": "integer" },
+              "kill_drop": { "type": "integer" },
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "vnum": { "type": "integer" },
+                    "count": { "type": "integer" },
+                    "percent": { "type": "number" },
+                    "rare_percent": { "type": "number" }
+                  },
+                  "required": ["vnum", "count", "percent", "rare_percent"],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": ["name", "type", "vnum", "kill_drop", "items"],
+            "additionalProperties": false
+          },
+          {
+            "title": "Drop",
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "type": { "const": "drop" },
+              "vnum": { "type": "integer" },
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "vnum": { "type": "integer" },
+                    "count": { "type": "integer" },
+                    "percent": { "type": "number" },
+                    "rare_percent": { "type": "number" }
+                  },
+                  "required": ["vnum", "count", "percent", "rare_percent"],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": ["name", "type", "vnum", "items"],
+            "additionalProperties": false
+          },
+          {
+            "title": "ThiefGloves",
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "type": { "const": "thiefgloves" },
+              "vnum": { "type": "integer" },
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "vnum": { "type": "integer" },
+                    "count": { "type": "integer" },
+                    "percent": { "type": "number" },
+                    "rare_percent": { "type": "number" }
+                  },
+                  "required": ["vnum", "count", "percent", "rare_percent"],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": ["name", "type", "vnum", "items"],
+            "additionalProperties": false
+          },
+          {
+            "title": "Limit",
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "type": { "const": "limit" },
+              "vnum": { "type": "integer" },
+              "level_limit": { "type": "integer" },
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "vnum": { "type": "integer" },
+                    "count": { "type": "integer" },
+                    "percent": { "type": "number" }
+                  },
+                  "required": ["vnum", "count", "percent"],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": ["name", "type", "vnum", "level_limit", "items"],
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  },
+  "required": ["rows"],
+  "additionalProperties": false
+}
