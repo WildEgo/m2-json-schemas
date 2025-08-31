@@ -21,7 +21,17 @@
           "mobs": {
             "type": "array",
             "items": {
-              "type": "integer"
+              "type": "object",
+              "properties": {
+                "vnum": {
+                  "type": "integer"
+                },
+                "prob": {
+                  "type": "integer"
+                }
+              },
+              "required": ["vnum", "prob"],
+              "additionalProperties": false
             }
           }
         },
