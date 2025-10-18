@@ -95,6 +95,12 @@
                       },
                       "rare_percentage": {
                         "type": "number"
+                      },
+                      "sockets": {
+                        "type": "array",
+                        "items": {
+                          "type": "number"
+                        }
                       }
                     },
                     "additionalProperties": false
