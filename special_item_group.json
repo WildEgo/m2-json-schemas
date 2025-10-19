@@ -79,7 +79,8 @@
                               "slow",
                               "drain_hp",
                               "poison",
-                              "group"
+                              "group",
+                              "gold"
                             ]
                           },
                           {
