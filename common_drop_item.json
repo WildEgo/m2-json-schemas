@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Common Drop Item Schema",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "PAWN": { "$ref": "#/$defs/list" },
+        "S_PAWN": { "$ref": "#/$defs/list" },
+        "KNIGHT": { "$ref": "#/$defs/list" },
+        "S_KNIGHT": { "$ref": "#/$defs/list" },
+        "BOSS": { "$ref": "#/$defs/list" },
+        "KING": { "$ref": "#/$defs/list" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "required": ["$schema", "data"],
+  "$defs": {
+    "list": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/dropItem"
+      }
+    },
+    "dropItem": {
+      "type": "object",
+      "properties": {
+        "item_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "level_start": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "level_end": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "drop_chance": {
+          "type": "number",
+          "minimum": 0
+        },
+        "item_vnum": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "item_name",
+        "level_start",
+        "level_end",
+        "drop_chance",
+        "item_vnum"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
