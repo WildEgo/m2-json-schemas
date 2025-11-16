@@ -1,0 +1,115 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Metin2 Configuration",
+  "type": "object",
+  "properties": {
+    "$schema": { "type": "string" },
+
+    "locale": {
+      "type": "string",
+      "enum": ["en", "pt"]
+    },
+
+    "display": {
+      "type": "object",
+      "properties": {
+        "width": {
+          "type": "integer",
+          "minimum": 800
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 600
+        },
+        "frequency": {
+          "type": "number"
+        },
+        "windowed": {
+          "type": "boolean"
+        }
+      },
+      "required": ["width", "height", "frequency", "windowed"]
+    },
+
+    "gamma": {
+      "type": "integer",
+      "enum": [1, 2, 3, 4, 5]
+    },
+
+    "volume": {
+      "type": "object",
+      "properties": {
+        "music": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "voice": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "required": ["music", "voice"]
+    },
+
+    "show_mob": {
+      "type": "object",
+      "properties": {
+        "level": { "type": "boolean" },
+        "ai_flag": { "type": "boolean" }
+      },
+      "required": ["level", "ai_flag"]
+    },
+
+    "shadow_level": {
+      "type": "integer",
+      "enum": [0, 1, 2, 3]
+    },
+
+    "fog_mode_on": {
+      "type": "boolean"
+    },
+
+    "camera_mode": {
+      "type": "string",
+      "enum": ["far", "close"]
+    },
+
+    "field_of_view": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+
+    "private_shop": {
+      "type": "object",
+      "properties": {
+        "view_distance": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "show_sales_text": {
+          "type": "boolean"
+        }
+      },
+      "required": ["view_distance", "show_sales_text"]
+    }
+  },
+
+  "required": [
+    "$schema",
+    "locale",
+    "display",
+    "gamma",
+    "volume",
+    "show_mob",
+    "shadow_level",
+    "fog_mode_on",
+    "camera_mode",
+    "field_of_view",
+    "private_shop"
+  ],
+  "additionalProperties": true
+}
